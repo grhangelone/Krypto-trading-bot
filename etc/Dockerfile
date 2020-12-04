@@ -1,10 +1,10 @@
 FROM overlordq/8-buster
 
 RUN apt-get update \
- && apt-get install --no-install-recommends -y git sudo
+ && apt-get install --no-install-recommends -y git sudo sqlite3
 
 # Feel free to choose the branch you want to build:
-RUN git clone -b master https://github.com/ctubio/Krypto-trading-bot.git /K
+RUN git clone -b master https://github.com/grhangelone/Krypto-trading-bot.git /K
 
 WORKDIR /K
 

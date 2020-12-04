@@ -20,7 +20,7 @@
 #  █ OPTIONAL_ARGUMENTS                                 .
 #  ██ - Allows a list of arguments, to avoid write it always in the command-line.
 #OPTIONAL_ARGUMENTS="--colors --autobot"
-OPTIONAL_ARGUMENTS="--colors --naked --debug-wallet"
+OPTIONAL_ARGUMENTS="--colors --naked -d data/docker.db"
 #  ██▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 #  ▌____                                                .
 #  ▌ II ▐_______________________________________________.
@@ -87,6 +87,17 @@ API_PASSPHRASE=NULL
 #  ██ - Allows one executable file from PATH.
 #K_BINARY_FILE=K-hello-world
 K_BINARY_FILE=K-trading-bot
+
+sqlite3 data/docker.db 'delete from D'
+sqlite3 data/docker.db 'delete from G'
+sqlite3 data/docker.db 'delete from e'
+sqlite3 data/docker.db 'delete from n'
+sqlite3 data/docker.db 'delete from s'
+sqlite3 data/docker.db 'delete from v'
+
+
+
+
 #  ██ - That's all. You can create multiple *.sh files ready to be executed anytime.
 #  █  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯.
 #  ▌                                                    .

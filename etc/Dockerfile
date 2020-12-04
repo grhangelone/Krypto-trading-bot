@@ -15,7 +15,7 @@ EXPOSE 3000 5000
 # See examples and descriptions of the
 # following variables at etc/K.sh.dist.
 
-ENV OPTIONAL_ARGUMENTS --colors
+ENV OPTIONAL_ARGUMENTS --colors --naked --database data/docker.db
 
 ENV UI_USERNAME NULL
 ENV UI_PASSWORD NULL
@@ -30,4 +30,4 @@ ENV API_HTTP_ENDPOINT NULL
 ENV API_WSS_ENDPOINT NULL
 ENV K_BINARY_FILE K-trading-bot
 
-CMD ["./K.sh", "--naked", "--without-ssl"]
+CMD ["./K.sh", "--naked", "--without-ssl", "--database data/docker.db"]

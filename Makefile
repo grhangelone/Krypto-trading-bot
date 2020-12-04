@@ -188,7 +188,7 @@ Win32: src/lib/Krypto.ninja-main.cxx src/bin/$(KSRC)/$(KSRC).main.h
 	  -static -lstdc++ -lgcc -lwldap32 -lws2_32
 
 download:
-	curl -L https://github.com/ctubio/Krypto-trading-bot/releases/download/$(MAJOR).$(MINOR).x/K-$(MAJOR).$(MINOR).$(PATCH).$(BUILD)-$(KHOST).tar.gz | tar xz
+	curl -L https://github.com/grhangelone/Krypto-trading-bot/releases/download/$(MAJOR).$(MINOR).x/K-$(MAJOR).$(MINOR).$(PATCH).$(BUILD)-$(KHOST).tar.gz | tar xz
 	@$(MAKE) system_install -s
 	@test -n "`ls *.sh 2>/dev/null`" || (cp etc/K.sh.dist K.sh && chmod +x K.sh)
 	@$(MAKE) upgrade_old_installations -s
@@ -237,7 +237,7 @@ docker: packages download
 
 reinstall:
 	test -d .git && ((test -n "`git diff`" && (echo && echo !!Local changes will be lost!! press CTRL-C to abort. && echo && sleep 5) || :) \
-	&& git fetch && git merge FETCH_HEAD || (git reset FETCH_HEAD && git checkout .)) || curl https://raw.githubusercontent.com/ctubio/Krypto-trading-bot/master/Makefile > Makefile
+	&& git fetch && git merge FETCH_HEAD || (git reset FETCH_HEAD && git checkout .)) || curl https://raw.githubusercontent.com/grhangelone/Krypto-trading-bot/master/Makefile > Makefile
 	@$(MAKE) install
 	#@$(MAKE) restartall
 	@echo && echo ..done! Please restart any running instance and also refresh the UI if is currently opened in your browser.
@@ -341,8 +341,8 @@ else
 	@tar -cvzf $(KTARGZ) $(KLOCAL)/bin/K-* $(KLOCAL)/lib/K-* LICENSE COPYING README.md Makefile doc etc test                      \
 	$(shell test -n "`echo $(CHOST) | grep mingw32`" && echo $(KLOCAL)/bin/*dll || :) src                                         \
 	&& curl -s -n -H "Content-Type:application/octet-stream" -H "Authorization: token ${KRELEASE}"                                \
-	--data-binary "@$(PWD)/$(KTARGZ)" "https://uploads.github.com/repos/ctubio/Krypto-trading-bot/releases/$(shell curl -s        \
-	https://api.github.com/repos/ctubio/Krypto-trading-bot/releases/latest | grep id | head -n1 | cut -d ' ' -f4 | cut -d ',' -f1 \
+	--data-binary "@$(PWD)/$(KTARGZ)" "https://uploads.github.com/repos/grhangelone/Krypto-trading-bot/releases/$(shell curl -s        \
+	https://api.github.com/repos/grhangelone/Krypto-trading-bot/releases/latest | grep id | head -n1 | cut -d ' ' -f4 | cut -d ',' -f1 \
 	)/assets?name=$(KTARGZ)" && rm -v $(KTARGZ)
 endif
 

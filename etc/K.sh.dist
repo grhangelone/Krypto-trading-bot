@@ -20,7 +20,7 @@
 #  █ OPTIONAL_ARGUMENTS                                 .
 #  ██ - Allows a list of arguments, to avoid write it always in the command-line.
 #OPTIONAL_ARGUMENTS="--colors --autobot"
-OPTIONAL_ARGUMENTS="--colors --naked -d data/docker.db"
+OPTIONAL_ARGUMENTS="--colors --naked --database data/docker.db"
 #  ██▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 #  ▌____                                                .
 #  ▌ II ▐_______________________________________________.
@@ -94,8 +94,6 @@ sqlite3 data/docker.db 'delete from e'
 sqlite3 data/docker.db 'delete from n'
 sqlite3 data/docker.db 'delete from s'
 sqlite3 data/docker.db 'delete from v'
-
-
 
 
 #  ██ - That's all. You can create multiple *.sh files ready to be executed anytime.
